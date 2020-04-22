@@ -34,7 +34,7 @@ public class HerokuDropdown {
         List<WebElement> listOfDropdownValues = select.getOptions();
         Assert.assertEquals(listOfDropdownValues.size(), 3, "Not all elements are presented in the dropdown");
         select.selectByVisibleText("Option 1");
-        Assert.assertTrue(driver.findElement(By.xpath("//select[@id='dropdown']/option[text()='Option 1']")).isSelected(), "Option 1 is not selected");
+        Assert.assertEquals(select.getFirstSelectedOption().getText(), "Option 1", "Option 1 is not selected");
         select.selectByVisibleText("Option 2");
         Assert.assertTrue(driver.findElement(By.xpath("//select[@id='dropdown']/option[text()='Option 2']")).isSelected(), "Option 2 is not selected");
 
